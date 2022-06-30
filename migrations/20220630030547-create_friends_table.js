@@ -2,7 +2,6 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    
        await queryInterface.createTable('friends', {   
         id:{
         type: Sequelize.INTEGER(11),
@@ -19,6 +18,11 @@ module.exports = {
         allowNull: false,
         unique: true
     },
+    phone:{
+      type: Sequelize.BIGINT,
+      allowNull: false,
+      unique: true
+  },
     createdAt: Sequelize.DATE,
     updatedAt: Sequelize.DATE
 
@@ -27,10 +31,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    /**
-     * Add reverting commands here.
-     *
-     */
+
       await queryInterface.dropTable('friends');
  
   }
