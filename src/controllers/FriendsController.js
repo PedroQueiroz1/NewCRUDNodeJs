@@ -9,9 +9,13 @@ const allFriends = async (req,res)=>{
     await res.render('home.hbs',{friends});
 }
 
+
+
 const friendForm = async (req,res)=>{
     await res.render('create.hbs');
 }
+
+
 
 const saveFriend = async (req,res)=>{
     const {name, email, phone} = await req.body;
@@ -20,9 +24,21 @@ const saveFriend = async (req,res)=>{
         email:email,
         phone:phone
     }).catch(error=>console.log(error));
-console.log(friend)
-await res.redirect('/');
+
+    req.body('name','Enter a name').notEmpty();
+    
+    const validacaoErros = req.validationErrors();
+
+    if(validacaoErros){
+        console.log(validacaoErros);
+        return;
+    }else{
+    console.log(friend)
+    await res.redirect('/');
+    }
 }
+
+
 
 const editFriend = async (req,res)=>{
     const {id} = await req.params;
@@ -35,6 +51,8 @@ const editFriend = async (req,res)=>{
     res.render('edit',{friend}) 
 }
 
+
+
 const updateFriend = async (req,res)=>{
     const {id} = req.params;
     const data = req.body;
@@ -42,6 +60,8 @@ const updateFriend = async (req,res)=>{
     await Friend.update(data, selector).catch(error=>console.log(error))
     res.redirect('/');
 }
+
+
 
 const viewFriend = async (req,res)=>{
     const {id} = req.params;
