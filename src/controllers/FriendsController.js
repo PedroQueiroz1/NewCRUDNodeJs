@@ -38,7 +38,7 @@ const saveFriend = async (req,res)=>{
     console.log(friend)
     await res.redirect('/');
     }
-    
+
 // ---------------------------
 
 }
