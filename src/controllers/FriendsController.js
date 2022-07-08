@@ -1,6 +1,6 @@
 const Friend = require('../models/Friend.js');
 
-
+const { validationResult } = require('express-validator');
 
 const allFriends = async (req,res)=>{
     const friends = await Friend.findAll({
@@ -25,17 +25,22 @@ const saveFriend = async (req,res)=>{
         phone:phone
     }).catch(error=>console.log(error));
 
-    req.body('name','Enter a name').notEmpty();
+ // ----- VALIDAÇÃO -------
+ //   body('name').notEmpty();
     
-    const validacaoErros = req.validationErrors();
+    const validacaoErros = validationResult(req);
 
     if(validacaoErros){
         console.log(validacaoErros);
+        res.status(400).json({ errors: validacaoErros.array()});
         return;
     }else{
     console.log(friend)
     await res.redirect('/');
     }
+    
+// ---------------------------
+
 }
 
 

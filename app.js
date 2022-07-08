@@ -3,9 +3,15 @@ const exphbs = require('express-handlebars');
 const app = express();
 const port = process.env.PORT|| 5000;
 const router = require('./src/routes/index');
-const { validationResult } = require("express-validator");
 
-app.use(validationResult);
+
+// --- VALIDAÇÃO --------
+//const expressValidator = require('express-validator');
+//app.use(expressValidator());
+// -------Código com problema---------
+
+
+
 app.use(express.json());
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('public'));
