@@ -1,4 +1,4 @@
-# My new CRUDNodeJs
+# New CRUDNodeJs
 
 It's a new project to practice my recent Node Js skills.
 
