@@ -1,9 +1,13 @@
-# CRUDNodeJs2.0
-CRUD project with Node JS
+# My new CRUDNodeJs
 
-It is a simple phone book just to practice my recent Node Js skills. 
+It's a new project to practice my recent Node Js skills.
 
-It's almost finished! Need validations + README.md improvement
+## Description
+It is a project created to get more in depth with the javascript and nodejs.
+It was made along with an Udemy course.
 
+Course:
+Introdução ao Node JS + Express
 
-Version 2.0 of my last Node JS app(unfinished)
+Professor:
+Guilherme Ferreira
